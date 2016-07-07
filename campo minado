@@ -1,6 +1,8 @@
 Programa 1 - prolog
 
-Este programa deve receber como entrada um arquivo chamado mina.pl como as posições das minas em um tabuleiro e gerar a configuração do tabuleiro de jogo onde cada posição deve ter um valor associado representando o número de minas existentes nas casas adjacentes. Por exemplo, se o arquivo de entrada contiver as seguintes cláusulas:
+Este programa deve receber como entrada um arquivo chamado mina.pl como as posições das minas em um tabuleiro e gerar a 
+configuração do tabuleiro de jogo onde cada posição deve ter um valor associado representando o número de minas existentes 
+nas casas adjacentes. Por exemplo, se o arquivo de entrada contiver as seguintes cláusulas:
 
 /*mina(linha,coluna): exista mina na posição (linha,coluna)*/
 mina(2,1).
@@ -37,10 +39,13 @@ Uma vez carregado, a seguinte consulta deve ser feita para executar o programa: 
 
 Programa 2 - prolog
 Este programa deverá ter como entrada os arquivos mina.pl e ambiente.pl, ou seja, a configuração do tabuleiro. 
-O usuário, que desconhece a configuração do tabuleiro, fará então uma jogada através de uma consulta posicao(linha,coluna), e o programa deverá apresentar o seguinte:
+O usuário, que desconhece a configuração do tabuleiro, fará então uma jogada através de uma consulta posicao(linha,coluna), 
+e o programa deverá apresentar o seguinte:
 - "jogo encerrado": caso haja uma mina na posição (linha,coluna); 
 - "n": caso existam n minas adjacentes a posição (linha,coluna);
-- "0": caso não existam minas adjacentes a posição (linha,coluna). Neste caso, todas as posições adjacentes a (linha,coluna) que não contenham minas (e portanto tenham um valor associado) também devem ser mostradas ao jogador. No caso de alguma destas posições adjacentes também ter o valor 0, as suas adjacências também devem ser mostradas.
+- "0": caso não existam minas adjacentes a posição (linha,coluna). Neste caso, todas as posições adjacentes a (linha,coluna)
+que não contenham minas (e portanto tenham um valor associado) também devem ser mostradas ao jogador. 
+No caso de alguma destas posições adjacentes também ter o valor 0, as suas adjacências também devem ser mostradas.
 Todas as informações (cláusulas) mostradas ao jogador deverão ser guardadas em um arquivo chamado jogo.pl.
 
 Exemplo: Considere que temos as cláusulas acima, e é feita a seguinte sequência de consultas:
@@ -79,10 +84,14 @@ posicao(2,1).
 /*AMBIENTE*/
 jogo encerrado
 
-Observe que na consulta "?-posicao(4,2)", não há a necessidade de repetir que a posição (3,1) tem o valor 1 pois tal informação foi fornecida no item anterior.
+Observe que na consulta "?-posicao(4,2)", não há a necessidade de repetir que a posição (3,1) tem o valor 1 pois tal informação 
+foi fornecida no item anterior.
 
 Programa 3 - prolog
-Faça um programa que jogue o campo minado. Inicialmente, este programa deve escolher uma posição aleatória para começar o jogo. A partir da resposta obtida, o programa deverá escolher uma casa que ele julgue segura para abrir. Ele só poderá usar para tomar esta decisão as informações obtidas por suas consultas e o conhecimento do jogo (regras) que você deverá colocar no programa.
+Faça um programa que jogue o campo minado. Inicialmente, este programa deve escolher uma posição aleatória para começar o jogo.
+A partir da resposta obtida, o programa deverá escolher uma casa que ele julgue segura para abrir. 
+Ele só poderá usar para tomar esta decisão as informações obtidas por suas consultas e o conhecimento do jogo (regras) 
+que você deverá colocar no programa.
 
 
 

@@ -1,6 +1,5 @@
-mina(2,1).
-mina(2,3).
-mina(4,5).
+:-[mina].
+
 
 increment(Z, P) :- P is Z+1.
 decrement(Z, P) :- P is Z-1.

@@ -1,4 +1,5 @@
-:- dynmic derrota/0, vitoria/0.
+vitoria(0).
+derrota(0).
 
 jogar(X,Y) :- [saida], assert(derrota).
 jogar(X,Y) :- vitoria, write("Voce Ganhou!").

@@ -18,13 +18,15 @@ writeVictory :-  open('saida.pl', append,Stream), write(Stream,'vitoria(1).'), n
 
 verifyAdjs(X,Y) :- adj1(X,Y), adj2(X,Y), adj3(X,Y), adj4(X,Y),adj5(X,Y),adj6(X,Y), adj7(X,Y),adj8(X,Y).
 
+salvarArquivo :- get_time(TIME), stamp_date_time(TIME, DATE, 'local'),
+                 format_time(atom(ATOM), '%d %b %T',DATE, posix), concat('saida.pl-', ATOM, NAME),
+                 rename_file('saida.pl', NAME), open('saida.pl', write ,Stream), close(Stream).
+
 posicao(X,Y) :- valor(X,Y,_), writeJogada(X,Y), checkPos(X,Y), checkVictory.
-posicao(X,Y) :- mina(X,Y), writeJogada(X,Y), write('Jogo Encerrado'), writeGameOver, get_time(TIME),
-                stamp_date_time(TIME, DATE, 'local'), format_time(atom(ATOM), '%d %b %T',DATE, posix),
-                concat('saida.pl-', ATOM, NAME), rename_file('saida.pl', NAME), [ambiente].
+posicao(X,Y) :- mina(X,Y), writeJogada(X,Y), write('Jogo Encerrado'), writeGameOver, salvarArquivo, [ambiente].
 posicao(_,_).
 
-checkVictory :- \+ valor(_,_,_), write('Vitoria!'),nl , writeVictory.
+checkVictory :- \+ valor(_,_,_), write('Vitoria!'),nl , writeVictory, salvarArquivo, [ambiente].
 
 checkPos(X,Y) :- valor(X,Y,0), writeAmbiente(X,Y,0), writeAmbienteOnFile(X,Y,0), retract(valor(X,Y,0)), verifyAdjs(X,Y).
 checkPos(X,Y) :- valor(X,Y,Z), writeAmbiente(X,Y,Z), writeAmbienteOnFile(X,Y,Z), retract(valor(X,Y,Z)).
